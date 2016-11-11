@@ -1,0 +1,7 @@
+{
+  "name": "BattleShip",
+  "short_name": "BattleShip",
+  "description": "A game of real time battleship built for the browser",
+  "start_url": "/",
+  "display": "standalone"
+}
