@@ -1,0 +1,18 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/battle-ship-app.html",
+  "fragments": [
+    "src/battle-ship-welcome.html",
+    "src/battle-ship-sign-in.html",
+    "src/battle-ship-not-found.html"
+  ],
+  "sourceGlobs": [
+   "src/**/*",
+   "images/**/*",
+   "bower.json"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}
