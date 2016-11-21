@@ -1,3 +1,4 @@
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <dom-module id="battle-ship-welcome">
@@ -8,9 +9,19 @@
 
         padding: 10px 20px;
       }
+      paper-button.orange {
+        background: #F6A623;
+        color: white;
+        margin: 16px;
+      }
     </style>
 
-    Welcome!
+    <!-- Paper Buttons -->
+    <div style="text-align: center; margin-top: 35vh;">
+      <paper-button raised class="orange">Random Battle</paper-button>
+      <paper-button raised class="orange">Battle A Friend</paper-button>
+    </div>
+    
   </template>
 
   <script>

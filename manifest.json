@@ -4,8 +4,8 @@
   "description": "A game of real time battleship built for the browser",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#3f51b5",
-  "background_color": "#3f51b5",
+  "theme_color": "#4990E2",
+  "background_color": "#4990E2",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",

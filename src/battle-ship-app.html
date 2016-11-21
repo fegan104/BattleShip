@@ -1,18 +1,23 @@
 <!-- @author Frank Egan -->
-<link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
-<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="battle-ship-welcome.html">
-<link rel="import" href="battle-ship-not-found.html">
 <link rel="import" href="battle-ship-sign-in.html">
+<link rel="import" href="not-found.html">
 
 <dom-module id="battle-ship-app">
   <template>
+    <!-- Local Styling -->
     <style>
       :host {
         display: block;
+      }
+
+      paper-toolbar.blue {
+        --paper-toolbar-background: #4990E2;
       }
     </style>
     <!-- Routing Info -->
@@ -25,19 +30,19 @@
     </app-route>
 
     <!-- Toolbar -->
-    <paper-toolbar>
-      <span class="title">Title</span>
+    <paper-toolbar class="blue">
+      <span class="title">BattleShip</span>
     </paper-toolbar>
 
     <!-- Main content -->
     <iron-pages
       selected="[[page]]"
       attr-for-selected="name"
-      fallback-selection="battle-ship-not-found"
+      fallback-selection="not-found"
       role="main">
-      <battle-ship-welcome name="battle-ship-welcome"></battle-ship-welcome>
-      <battle-ship-sign-in name="battle-ship-sign-in"></battle-ship-sign-in>
-      <battle-ship-not-found name="battle-ship-not-found"></battle-ship-not-found>
+      <battle-ship-welcome name="welcome"></battle-ship-welcome>
+      <battle-ship-sign-in name="sign-in"></battle-ship-sign-in>
+      <not-found name="not-found"></not-found>
     </iron-pages>
   </template>
 
@@ -58,18 +63,18 @@
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'battle-ship-welcome';
+        this.page = page || 'welcome';
       },
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl(page + '.html');
+        var resolvedPageUrl = this.resolveUrl('battle-ship-' + page + '.html');
         console.log("page = " + page);
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
       _showPage404: function() {
-        this.page = 'battle-ship-not-found';
+        this.page = 'not-found';
       }
     });
   </script>
