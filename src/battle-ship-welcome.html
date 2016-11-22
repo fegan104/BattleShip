@@ -18,15 +18,29 @@
 
     <!-- Paper Buttons -->
     <div style="text-align: center; margin-top: 35vh;">
-      <paper-button raised class="orange">Random Battle</paper-button>
-      <paper-button raised class="orange">Battle A Friend</paper-button>
+      <paper-button 
+        raised
+        class="orange" 
+        on-tap="startRandom">Random Battle</paper-button>
+      <paper-button
+        raised 
+        class="orange" 
+        on-tap="startFreindly">Battle A Friend</paper-button>
     </div>
     
   </template>
 
   <script>
     Polymer({
-      is: 'battle-ship-welcome'
+      is: 'battle-ship-welcome',
+
+      startRandom: function(e) {
+        alert('Random');
+      },
+      startFreindly: function(e) {
+        alert('Friend');
+      }
+
     });
   </script>
 </dom-module>
