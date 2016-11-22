@@ -1,5 +1,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="battle-ship-waiting.html">
+<link rel="import" href="battle-ship-sign-in.html">
 
 <dom-module id="battle-ship-welcome">
   <template>
@@ -35,10 +37,12 @@
       is: 'battle-ship-welcome',
 
       startRandom: function(e) {
-        alert('Random');
+        console.log("starting a random game");
+        location.href = '/waiting';
       },
       startFreindly: function(e) {
-        alert('Friend');
+        console.log("starting a friendly game");
+        location.href = '/sign-in';
       }
 
     });
