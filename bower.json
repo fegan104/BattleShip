@@ -8,12 +8,18 @@
     "app-route": "PolymerElements/app-route#^0.9.3",
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
     "iron-selector": "PolymerElements/iron-selector#^1.5.2",
-    "paper-button": "PolymerElements/paper-button#^1.0.14"
+    "paper-button": "PolymerElements/paper-button#^1.0.14",
+    "polymer-search-bar-demo": "viljoviitanen/polymer-search-bar-demo",
+    "paper-input": "PolymerElements/paper-input#^1.1.22",
+    "paper-material": "PolymerElements/paper-material#^1.0.6"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "resolutions": {
+    "paper-ripple": "^1.0.0"
   }
 }

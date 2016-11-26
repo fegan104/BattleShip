@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+
+<dom-module id="bs-select-friend">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px 20px;
+      }
+      paper-material{
+        max-width: 82vw;
+        padding: 1vw;
+        margin: 0 auto;
+      }
+      paper-input{
+        --paper-input-container-color: #999;
+        --paper-input-container-focus-color: #4990E2;
+      }
+    </style>
+
+    <!-- Search bar -->
+    <paper-material>
+      <paper-input label="Search"></paper-input>
+    </paper-material>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'bs-select-friend'
+    });
+  </script>
+</dom-module>

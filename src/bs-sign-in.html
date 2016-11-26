@@ -1,0 +1,79 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="bs-sign-in">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px 20px;
+      }
+      #button-column{
+        text-align: center;
+        margin-top: 25vh;
+        color: white;
+        font-size: 160%;
+      }
+      paper-button.google-blue {
+        background: #4885ed;
+        color: white;
+        margin: 16px;
+        font-size: 70%;
+        min-width: 20vw;
+      }
+      paper-button.twitter-blue {
+        background: #00aced;
+        color: white;
+        margin: 16px;
+        font-size: 70%;
+        min-width: 20vw;
+      }
+      paper-button.facebook-blue {
+        background: #3b5998;
+        color: white;
+        margin: 16px;
+        font-size: 70%;
+        min-width: 20vw;
+      }
+    </style>
+
+    <div id="button-column">
+      <!-- Google Button -->
+      <div>
+       <paper-button
+         raised 
+         class="google-blue" 
+         on-tap="_signInGoogle">Sign in with Google</paper-button> 
+      </div>
+      <!-- Twitter Button -->
+      <div>
+        <paper-button
+          raised 
+          class="twitter-blue" 
+          on-tap="_signInTwitter">Sign in with Twitter</paper-button>
+      </div>
+      <!-- Facebook Button -->
+      <div>
+        <paper-button
+          raised 
+          class="facebook-blue" 
+          on-tap="_signInFacebook">Sign in with Facebook</paper-button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'bs-sign-in',
+      _signInGoogle: function(e){
+        console.log("signing in with Google...")
+      },
+      _signInTwitter: function(e){
+        console.log("signing in with Twitter...")
+      },
+      _signInFacebook: function(e){
+        console.log("signing in with Facebook...")
+      },
+    });
+  </script>
+</dom-module>

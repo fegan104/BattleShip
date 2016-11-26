@@ -4,13 +4,13 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="battle-ship-welcome.html">
-<link rel="import" href="battle-ship-sign-in.html">
-<link rel="import" href="battle-ship-waiting.html">
-<link rel="import" href="battle-ship-select-friend.html">
-<link rel="import" href="not-found.html">
+<link rel="import" href="bs-welcome.html">
+<link rel="import" href="bs-sign-in.html">
+<link rel="import" href="bs-waiting.html">
+<link rel="import" href="bs-select-friend.html">
+<link rel="import" href="bs-not-found.html">
 
-<dom-module id="battle-ship-app">
+<dom-module id="bs-app">
   <template>
     <!-- Local Styling -->
     <style>
@@ -42,17 +42,17 @@
       attr-for-selected="name"
       fallback-selection="not-found"
       role="main">
-      <battle-ship-welcome name="welcome"></battle-ship-welcome>
-      <battle-ship-sign-in name="sign-in"></battle-ship-sign-in>
-      <battle-ship-waiting name="waiting"></battle-ship-waiting>
-      <battle-ship-select-friend name="select-friend"></battle-ship-select-friend>
-      <not-found name="not-found"></not-found>
+      <bs-welcome name="welcome"></bs-welcome>
+      <bs-sign-in name="sign-in"></bs-sign-in>
+      <bs-waiting name="waiting"></bs-waiting>
+      <bs-select-friend name="select-friend"></bs-select-friend>
+      <bs-not-found name="not-found"></bs-not-found>
     </iron-pages>
   </template>
 
   <script>
     Polymer({
-      is: 'battle-ship-app',
+      is: 'bs-app',
 
       properties: {
         page: {
@@ -72,8 +72,7 @@
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('battle-ship-' + page + '.html');
-        console.log("page = " + page);
+        var resolvedPageUrl = this.resolveUrl('bs-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
