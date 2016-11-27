@@ -1,3 +1,4 @@
+<!-- @author Frank Egan -->
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
@@ -22,7 +23,12 @@
 
     <!-- Search bar -->
     <paper-material>
-      <paper-input label="Search"></paper-input>
+      <paper-input
+        label="Search"
+        type="search"
+        autosave="test"
+        results="4">
+      </paper-input>
     </paper-material>
 
   </template>

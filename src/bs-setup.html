@@ -1,32 +1,25 @@
 <!-- @author Frank Egan -->
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
-<dom-module id="bs-waiting">
+<dom-module id="bs-setup">
   <template>
     <style>
       :host {
         display: block;
         padding: 10px 20px;
-        background: #4990E2;
-        height: 100vh;
       }
-      div{
-        text-align: center;
-        margin-top: 35vh;
-        color: white;
-        font-size: 160%;
+      table {
+      	float: right;
       }
-
     </style>
+    <!-- Game board logic -->
+    <script src="../js/bs-board.js"></script>
+    <!-- Game board view -->
+    <table id='battle-ship-board'></table>
 
-    <div>
-      Waiting for other player...
-    </div>
   </template>
-
   <script>
     Polymer({
-      is: 'bs-waiting'
+      is: 'bs-setup',
     });
   </script>
 </dom-module>

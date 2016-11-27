@@ -1,14 +1,18 @@
 <!-- @author Frank Egan -->
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="bs-select-friend.html">
+<link rel="import" href="bs-not-found.html">
 <link rel="import" href="bs-welcome.html">
 <link rel="import" href="bs-sign-in.html">
 <link rel="import" href="bs-waiting.html">
-<link rel="import" href="bs-select-friend.html">
-<link rel="import" href="bs-not-found.html">
+<link rel="import" href="bs-setup.html">
 
 <dom-module id="bs-app">
   <template>
@@ -20,6 +24,9 @@
 
       paper-toolbar.blue {
         --paper-toolbar-background: #4990E2;
+        --paper-toolbar-title: {
+            margin:0px;
+          };
       }
     </style>
     <!-- Routing Info -->
@@ -34,6 +41,7 @@
     <!-- Toolbar -->
     <paper-toolbar class="blue">
       <span class="title">BattleShip</span>
+      <paper-icon-button icon="more-vert"></paper-icon-button>
     </paper-toolbar>
 
     <!-- Main content -->
@@ -46,6 +54,7 @@
       <bs-sign-in name="sign-in"></bs-sign-in>
       <bs-waiting name="waiting"></bs-waiting>
       <bs-select-friend name="select-friend"></bs-select-friend>
+      <bs-setup name="setup"></bs-setup>
       <bs-not-found name="not-found"></bs-not-found>
     </iron-pages>
   </template>
