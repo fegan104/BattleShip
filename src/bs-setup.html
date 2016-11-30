@@ -9,17 +9,43 @@
       }
       table {
       	float: right;
+        overflow: visible;
+
+      	min-width: 200px;
+        width: 50vw;
+      	max-width: 100vw;
+      	
+      	min-height: 200px;
+        height: 50vw;
+      	max-height: 100vh;
+      }
+      .aircraft-carrier {
+        background: #000080;
+        width: 5vw;
+        height: 25vw;
+        float: left;
       }
     </style>
     <!-- Game board logic -->
     <script src="../js/bs-board.js"></script>
     <!-- Game board view -->
     <table id='battle-ship-board'></table>
+    <!-- One of our boats -->
+    <div id="aircraft-carrier" class="aircraft-carrier" draggable="true" ondragstart="drag(event)"></div>
 
   </template>
   <script>
     Polymer({
       is: 'bs-setup',
     });
+    var aircraftCarrier = {
+      position: [0, 0],
+      tiles: []
+    }
+    // Handle drag event
+    function drag(ev) {
+      console.log("id = " + ev.target.id);
+      ev.dataTransfer.setData("boat", ev.target.id);
+    }
   </script>
 </dom-module>
