@@ -1,8 +1,7 @@
 <!-- @author Frank Egan -->
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="view-board.html">
 
-<dom-module id="bs-setup">
+<dom-module id="view-piece">
   <template>
     <style>
       :host {
@@ -11,11 +10,17 @@
       }
     </style>
 
-    <view-board></view-board>
+    <div id="tile" style="width: 5vw; height: 5vw; background: #000080;"></div>
+
+
   </template>
+
   <script>
     Polymer({
-      is: 'bs-setup',
+      is: 'view-piece',
+      properties: {
+      	ship: String
+      }
     });
   </script>
 </dom-module>
