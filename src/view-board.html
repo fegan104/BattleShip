@@ -1,45 +1,76 @@
 <!-- @author Frank Egan -->
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="view-tile.html">
 
 <dom-module id="view-board">
   <template>
     <style>
       :host {
         display: block;
-        padding: 10px 20px;
+        --bs-blue: #1976D2;
       }
-
-      table {
+      .board {
+        width: 45vw;
+        background: rgba(176,190,197 ,1);
         float: right;
-        overflow: visible;
-
-        min-width: 200px;
-        width: 50vw;
-        max-width: 100vw;
-        
-        min-height: 200px;
-        height: 50vw;
-        max-height: 100vh;
       }
-    </style>
 
-    <!-- Game board logic -->
-    <script src="../js/board-logic.js"></script>
-    <!-- Game board view -->
-    <table id='battle-ship-board'></table>
-    
+      .square {
+        float:left;
+        position: relative;
+        width: calc(4.5vw - 4px);
+        padding-bottom: calc(4.5vw - 4px); /* = width for a 1:1 aspect ratio */
+        margin: 2px;
+        background: var(--bs-blue);
+      }
+
+    </style>
+      <div id="board" class="board"></div>
   </template>
 
   <script>
     Polymer({
       is: 'view-board',
-
-      listeners: {
-        'tap': 'regularTap'
+      properties:{
+        height:{
+          type: Number,
+          value: 10
+        },
+        width:{
+          type: Number,
+          readOnly: true,
+          value: 10
+        },
+        cursor:{
+          type:Boolean,
+          notify: true,
+          value: false
+        }
       },
-
-      regularTap: function(ev) {
-        console.log(ev.target);
+      listeners:{
+        'tile-tap': 'tapped'
+      },
+      ready: function(){
+        var board = this.$.board;
+        for (var i = 0; i < this.height; i++) {
+          for (var j = 0; j < this.width; j++) {
+            var tile = document.createElement('view-tile');
+            tile.x = j;
+            tile.y = i;
+            board.appendChild(tile);
+          }
+        }
+      },
+      tapped: function(e, d){
+        console.log("(" + e.detail.x + ", " + e.detail.y + ")");
+        this.cursor = !this.cursor;
+        this._updateCursor(e.detail.x, e.detail.y, this.cursor);
+      },
+      getTile: function(x, y) {
+        return this.$.board.childNodes[x + 10*y];
+      },
+      _updateCursor: function(x, y, show){
+        this.getTile(x, y).showCursor(show);
       }
     });
   </script>

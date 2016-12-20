@@ -1,0 +1,52 @@
+<!-- @author Frank Egan -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="view-tile">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --bs-blue: #1976D2;
+      }
+
+      .tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float:left;
+        position: relative;
+        width: calc(4.5vw - 4px);
+        height: calc(4.5vw - 4px); /* = width for a 1:1 aspect ratio */
+        margin: 2px;
+        background: var(--bs-blue);
+      }
+
+    </style>
+    <div id="tile" class="tile" on-tap="tileTapped"></div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'view-tile',
+
+      properties: {
+        x: Number,
+        y: Number
+      },
+      showCursor: function(show){
+        if (show) {
+          var ic = document.createElement('img');
+          ic.src = "../images/icons/ic_gps_fixed_black_24px.svg";
+          ic.style.width = "80%"
+          this.$.tile.appendChild(ic);
+        } else {
+          this.$.tile.innerHTML = "";
+        }
+      },
+      tileTapped: function(e, detail){
+        this.fire('tile-tap', {x: this.x, y: this.y});
+      }
+    });
+  </script>
+</dom-module>
