@@ -42,9 +42,9 @@
           value: 10
         },
         cursor:{
-          type:Boolean,
+          type:Object,
           notify: true,
-          value: false
+          value: {x:0, y:0, show: false}
         }
       },
       listeners:{
@@ -63,14 +63,24 @@
       },
       tapped: function(e, d){
         console.log("(" + e.detail.x + ", " + e.detail.y + ")");
-        this.cursor = !this.cursor;
-        this._updateCursor(e.detail.x, e.detail.y, this.cursor);
+        this._updateCursor(e.detail.x, e.detail.y);
       },
       getTile: function(x, y) {
         return this.$.board.childNodes[x + 10*y];
       },
-      _updateCursor: function(x, y, show){
-        this.getTile(x, y).showCursor(show);
+      _updateCursor: function(x, y) {
+        //if we click on the cursor remove it
+        if (this.cursor.show && this.cursor.x === x && this.cursor.y === y) {
+          this.getTile(x, y).showCursor(false);
+          this.cursor = {x:x, y:y, show:false};//update value
+          return;
+        } else if (this.cursor.show) {//if it's currently visible hide it and place somewhere else
+          this.getTile(this.cursor.x, this.cursor.y).showCursor(false);
+          this.getTile(x, y).showCursor(true);
+        } else {
+          this.getTile(x, y).showCursor(true);
+        }
+        this.cursor = {x:x, y:y, show:true};//update value
       }
     });
   </script>

@@ -46,6 +46,9 @@
       },
       tileTapped: function(e, detail){
         this.fire('tile-tap', {x: this.x, y: this.y});
+      },
+      isBlank: function(){
+        return this.$.tile.innerHTML === "";
       }
     });
   </script>
